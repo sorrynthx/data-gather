@@ -1,0 +1,21 @@
+v1
+├── src
+│   ├── bin
+│   │   └── generate_token.rs   // 토큰 생성 및 암호화 로직이 포함된 파일
+│   ├── handlers.rs             // 라우트 핸들러 함수들을 정의한 파일
+│   ├── routes.rs               // 라우트 정의 및 설정 파일
+│   ├── state.rs                // 애플리케이션 상태 및 공유 데이터 구조체 파일
+│   ├── utils.rs                // 유틸리티 함수들 (토큰 검증, 설정 로드 등)
+│   └── main.rs                 // 메인 백엔드 애플리케이션 진입점
+├── static
+│   └── index.html              // 설정 UI/UX를 위한 Tauri 프론트엔드 파일
+├── target                      // 빌드 시 생성되는 컴파일 타겟 디렉터리
+└── Cargo.toml                  // Rust 프로젝트 설정 및 종속성 관리 파일
+└── memo.txt                    // 라이브러리 및 배포 명령어 기록 파일
+└── .env                        // 설정 파일 경로 및 비밀 키 저장 파일
+
+
+
+.gitignore
+configuration.conf
+README.md

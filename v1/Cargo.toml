@@ -3,6 +3,14 @@ name = "v1"                    # 패키지 이름 설정
 version = "0.1.0"              # 패키지 버전
 edition = "2021"               # Rust 에디션 설정 (Rust 2021)
 
+[[bin]]
+name = "generate_token"    # Name of the executable
+path = "src/bin/generate_token.rs"   # Path to the source file
+
+[[bin]]
+name = "main"  # Name of the main binary target
+path = "src/main.rs"  # Path to your main.rs file
+
 [dependencies]
 actix-web = "4.0"              # Actix Web 라이브러리: 서버 생성 및 라우트 처리를 위한 웹 프레임워크
 actix-files = "0.6"            # Actix Files: 정적 파일(HTML, CSS, JS 등)을 서비스하기 위한 라이브러리
@@ -10,3 +18,9 @@ actix-cors = "0.6"             # Actix CORS: 교차 출처 요청을 처리하�
 serde = { version = "1.0", features = ["derive"] } # Serde: JSON 및 기타 포맷의 직렬화/역직렬화를 위한 라이브러리
 serde_json = "1.0"             # Serde JSON: JSON 데이터를 다루기 위한 Serde의 확장 라이브러리
 tokio = { version = "1", features = ["full"] }     # Tokio: 비동기 실행을 위한 런타임 (Actix Web의 비동기 기능에 필요)
+aes-gcm = "0.10"            # AES-GCM: AES-256-GCM 알고리즘을 사용한 암호화 및 복호화 기능 제공 (보안성이 높은 대칭키 암호화)
+aes = "0.8"                 # AES: AES 블록 암호화 구현을 위한 라이브러리 (대칭키 암호화의 기본이 되는 블록 암호화 알고리즘)
+chrono = "0.4"              # Chrono: 날짜 및 시간을 다루기 위한 라이브러리 (토큰의 유효 기간 설정 시 사용)
+rand = "0.8"                # Rand: 난수를 생성하기 위한 라이브러리 (암호화 시 사용할 Nonce 값을 생성하기 위해 사용)
+base64 = "0.21"             # Base64: 데이터를 Base64 인코딩 및 디코딩하는 기능 제공 (암호화된 데이터를 안전하게 문자열로 변환하기 위해 사용)
+dotenv = "0.15"

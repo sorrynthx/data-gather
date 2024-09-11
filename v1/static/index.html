@@ -11,19 +11,41 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center mt-5">
-        <h1 class="display-4">Welcome to Rust Actix Web Server!</h1>
-        <p class="lead">This is a simple HTML page served by a Rust backend using Actix Web.</p>
-        <hr class="my-4">
-        <p>Explore Rust's powerful backend capabilities combined with modern HTML/CSS for building web applications.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </div>
+        <div class="col-md-12 text-center mt-5">
+            <h1 class="display-4">Welcome to Rust Actix Web Server!</h1>
+            <p class="lead">This is a simple HTML page served by a Rust backend using Actix Web.</p>
+            <hr class="my-4">
+            <p>Explore Rust's powerful backend capabilities combined with modern HTML/CSS for building web applications.</p>
+            <p id="status-message"></p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- Bootstrap JS and dependencies (optional) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS and dependencies (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Fetch the token status and display it
+    fetch('/status')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Data received:', data); // Log the received data for debugging
+        const message = data.isExpired ? "The token is expired." : "The token is valid.";
+        document.getElementById('status-message').textContent = message;
+    })
+    .catch(error => {
+        console.error('Error fetching status:', error);
+        document.getElementById('status-message').textContent = 'Error fetching status: ' + error.message;
+    });
+</script>
+
 </body>
 </html>

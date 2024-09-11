@@ -1,0 +1,17 @@
+# key 만들기 (s3cr3tK3yForEncrypTionExampl3932) 키 + 유효일자(일)
+cargo run --bin generate_token s3cr3tK3yForEncrypTionExampl3932 7
+
+# cargo 명령어
+cargo clean
+cargo build
+cargo update
+cargo check
+cargo run --bin main
+
+
+rustup update
+
+
+# .env file
+CONFIG_PATH="C:\\dev\\3. Rust\\data-gather\\configuration.conf"
+SECRET_KEY=s3cr3tK3yForEncrypTionExampl3932
